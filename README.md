@@ -1,10 +1,19 @@
-h1. Funda.nl API job interview task
+# Funda.nl API job interview task
 
-h2. comments&readme
+## comments&readme
 
 ...
 
-h2. todo list
+## Installation
+
+You need:
+
+* mysql with `insided` database and `insided.sql` dump
+* memcached
+* php with proper extensions
+* start on localhost with built-in php 5.5 server: 
+
+## todo
 
 * + tricky api - how to determine pages count?
 * unit tests
