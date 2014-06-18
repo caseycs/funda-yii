@@ -1,1 +1,1 @@
-* * * * * /var/www/insided/app/yiic.php fundafetch >> /var/www/insided/insided/app/fundafetch.log 2>&1
+* * * * * /var/www/insided/app/yiic.php fundafetch >> /var/www/insided/app/runtime/fundafetch.log 2>&1

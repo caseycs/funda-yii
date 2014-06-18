@@ -1,6 +1,5 @@
 <?php
-//Yii::setPathOfAlias('vendor', realpath(__DIR__ . '/../../../vendor'));
-
+// Yii::setPathOfAlias('local','path/to/local-folder');
 return array(
     'basePath' => realpath(dirname(__FILE__) . DIRECTORY_SEPARATOR . '..'),
     'name' => 'Insided Funda Assignment',

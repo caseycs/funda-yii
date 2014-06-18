@@ -1,6 +1,4 @@
 <?php
-// This is the configuration for yiic console application.
-// Any writable CConsoleApplication properties can be configured here.
 return CMap::mergeArray(
     require(dirname(__FILE__) . '/common.php'),
     array(
@@ -8,7 +6,7 @@ return CMap::mergeArray(
             'fundafetch' => array(
                 'class' => 'application.commands.FundaFetchCommand',
                 'rpm_limit' => 90,
-                'page_expire' => 600, // 10 minutes
+                'page_expire' => 60 * 120, // 120 minutes
                 'pages_limit' => 100, // request 100 pages before die per script run
             ),
         ),

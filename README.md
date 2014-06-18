@@ -15,17 +15,17 @@ You need:
 
 ## todo
 
-* + tricky api - how to determine pages count?
+* ~~tricky api - how to determine pages count?~~
 * unit tests
 * selenium tests
 * running on production
 * salt for server side config
 * capistrano/??? for deploy
-* + memcache for rpm limit
+* ~~memcache for rpm limit~~
 * + console logging from yii
 * psr codestyle
 * psr autoload/namespaces
-* ~code comments
-* + repo on github
+* ~ code comments
+* ~~repo on github~~
 * write comments&readme
-* common config file
+* ~~common config files~~
