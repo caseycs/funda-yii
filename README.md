@@ -8,10 +8,10 @@
 
 You need:
 
-* mysql with `insided` and `insided-test` databases and restored dump from `schema.mysql.sql`
+* mysql with `insided` and `insided_test` databases and restored dump from `app/data/schema.mysql.sql`
 * memcached
 * php with proper extensions
-* start on localhost with built-in php 5.5 server: 
+* start on localhost with built-in php 5.5 server: `php -S localhost:8888 -t public/ app/index.php`
 
 ## todo
 
