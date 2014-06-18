@@ -22,7 +22,7 @@ You need:
 * salt for server side config
 * capistrano/??? for deploy
 * ~~memcache for rpm limit~~
-* + console logging from yii
+* ~~console logging from yii~~
 * psr codestyle
 * psr autoload/namespaces
 * ~ code comments
