@@ -8,7 +8,7 @@
 
 You need:
 
-* mysql with `insided` database and `insided.sql` dump
+* mysql with `insided` and `insided-test` databases and restored dump from `schema.mysql.sql`
 * memcached
 * php with proper extensions
 * start on localhost with built-in php 5.5 server: 

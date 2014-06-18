@@ -1,1 +1,1 @@
-* * * * * /var/www/insided/app/yiic.php fundafetch >> /var/www/insided/app/runtime/fundafetch.log 2>&1
+* * * * * /usr/bin/flock -xn /var/www/insided/app/runtime/fundafetch.lock -c '/var/www/insided/app/yiic.php fundafetch' >> /var/www/insided/app/runtime/fundafetch.log 2>&1
