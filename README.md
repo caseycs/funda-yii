@@ -17,7 +17,8 @@ You need:
 
 * write comments&readme - why i choose this approach?
 * ~~tricky api - how to determine pages count?~~
-* general task
+* ~~general task - back-end~~
+* general task - front-end
 * unit tests - db storage
 * ~~unit tests - memcache-based RPM limiter~~
 * selenium tests - front web UI

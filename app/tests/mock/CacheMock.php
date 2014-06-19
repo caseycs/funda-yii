@@ -1,4 +1,8 @@
 <?php
+/**
+ * Vary simple mock for memcache to avoid it's usage in test,
+ * so we make out unit tests really unit, w/o external daemons call
+ */
 class CacheMock implements IApplicationComponent
 {
     public $memCache;
