@@ -24,7 +24,7 @@ class FundaFetchCommand extends CConsoleCommand
         if ($this->rpm_limit < 2) throw new LogicException('rpm_limit lower then 2');
         if ($this->pages_limit < 1) throw new LogicException('pages_limit lower then 1');
 
-        //dependency injection emulation - to change dependencies in test config
+        //for code complete
         $this->CMemCache = Yii::app()->cache;
         $this->FundaClient = Yii::app()->fundaClient;
         $this->DB = Yii::app()->db;
@@ -60,6 +60,9 @@ class FundaFetchCommand extends CConsoleCommand
         return true;
     }
 
+    /**
+     * Store pages count and create pages rows in DB
+     */
     private function storePages(FundaFilter $FundaFilter, array $result)
     {
         if (!isset($result['Paging']['AantalPaginas'])) {
@@ -97,7 +100,7 @@ class FundaFetchCommand extends CConsoleCommand
     }
 
     /**
-     * update pages according to $this->page_expire
+     * Update pages according to $this->page_expire
      */
     private function updatePages()
     {
@@ -138,6 +141,9 @@ class FundaFetchCommand extends CConsoleCommand
         }
     }
 
+    /**
+     * Store data from Funda json to DB
+     */
     private function updatePage(FundaPage $FundaPage, array $result)
     {
         if (!isset($result['Objects']) || !is_array($result['Objects'])) {
@@ -230,6 +236,9 @@ class FundaFetchCommand extends CConsoleCommand
         }
     }
 
+    /**
+     * Transform FundaFilter to FundaClient request params and perform request
+     */
     private function fetchPage(FundaFilter $FundaFilter, $page)
     {
         $options = array();
