@@ -15,18 +15,19 @@ You need:
 
 ## todo
 
+* write comments&readme - why i choose this approach?
 * ~~tricky api - how to determine pages count?~~
 * general task
-* unit tests
-* selenium tests
+* unit tests - db storage
+* ~~unit tests - memcache-based RPM limiter~~
+* selenium tests - front web UI
 * running on production
-* salt for server side config
-* capistrano/??? for deploy
 * ~~memcache for rpm limit~~
 * ~~console logging from yii~~
 * psr codestyle
 * psr autoload/namespaces
 * code comments
 * ~~repo on github~~
-* write comments&readme - why i choose this approach?
 * ~~common config files~~
+* salt for server side config
+* capistrano/??? for deploy
