@@ -16,6 +16,7 @@ You need:
 ## todo
 
 * ~~tricky api - how to determine pages count?~~
+* general task
 * unit tests
 * selenium tests
 * running on production
@@ -25,7 +26,7 @@ You need:
 * ~~console logging from yii~~
 * psr codestyle
 * psr autoload/namespaces
-* ~ code comments
+* code comments
 * ~~repo on github~~
-* write comments&readme
+* write comments&readme - why i choose this approach?
 * ~~common config files~~

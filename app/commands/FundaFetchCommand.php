@@ -19,17 +19,20 @@ class FundaFetchCommand extends CConsoleCommand
     /* @var CDbConnection */
     private $DB;
 
-    public function run($args)
+    public function init()
     {
         if ($this->rpm_limit < 2) throw new LogicException('rpm_limit lower then 2');
         if ($this->pages_limit < 1) throw new LogicException('pages_limit lower then 1');
-
-        Yii::log('FundaFetch start');
 
         //dependency injection emulation - to change dependencies in test config
         $this->CMemCache = Yii::app()->cache;
         $this->FundaClient = Yii::app()->fundaClient;
         $this->DB = Yii::app()->db;
+    }
+
+    public function run($args)
+    {
+        Yii::log('FundaFetch start');
 
         if ($this->initialFetchPagesCount()) {
             $this->updatePages();
@@ -217,7 +220,7 @@ class FundaFetchCommand extends CConsoleCommand
             $this->CMemCache->set(MemCacheKeys::FUNDA_FETCH_REQUESTS_MADE, 1);
             Yii::log('Funda requests made set to 1');
             return true;
-        } elseif ($made > $this->rpm_limit) {
+        } elseif ($made >= $this->rpm_limit) {
             Yii::log('Funda requests limit reached');
             return false;
         } else {

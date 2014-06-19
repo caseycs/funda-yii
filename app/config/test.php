@@ -1,4 +1,6 @@
 <?php
+Yii::setPathOfAlias('mock', __DIR__ . '/../tests/mock');
+
 return CMap::mergeArray(
     require(dirname(__FILE__) . '/main.php'),
     array(
@@ -11,6 +13,11 @@ return CMap::mergeArray(
                    'connectionString'=>'DSN for test database',
                ),
                */
+        ),
+        // autoloading model and component classes
+        'import' => array(
+            'mock.*',
+            'application.commands.*',
         ),
     )
 );
