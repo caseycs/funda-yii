@@ -54,8 +54,8 @@ LOCK TABLES `funda_filter` WRITE;
 
 INSERT INTO `funda_filter` (`id`, `location`, `type`, `is_garden`, `fetch_time`)
 VALUES
-	(1,'amsterdam','koop',0,'2014-06-19 02:15:48'),
-	(2,'amsterdam','koop',1,'2014-06-19 01:38:49');
+	(1,'amsterdam','koop',0,null),
+	(2,'amsterdam','koop',1,null);
 
 /*!40000 ALTER TABLE `funda_filter` ENABLE KEYS */;
 UNLOCK TABLES;

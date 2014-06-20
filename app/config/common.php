@@ -12,7 +12,8 @@ return array(
             'connectionString' => 'mysql:host=localhost;dbname=insided',
             'emulatePrepare' => true,
             'username' => 'root',
-            'password' => '',
+            //dirty hack to avoid separate config files
+            'password' => getenv('APPLICATION_ENV') === 'dev' ? '' : 'root',
             'charset' => 'utf8',
         ),
         'log' => array(

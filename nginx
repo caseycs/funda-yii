@@ -1,0 +1,36 @@
+upstream fpm {
+    server unix:/var/run/php5-fpm.sock;
+}
+
+server {
+    listen      80;
+    server_name www.chabrova.ru;
+    access_log  off;
+    return 301  http://chabrova.ru;
+}
+
+server {
+    listen      80;
+    server_name chabrova.ru;
+
+    gzip on;
+    gzip_min_length 1024;
+    gzip_types text/xml text/css application/x-javascript text/javascript application/javascript;
+
+    client_max_body_size 5M;
+
+    proxy_buffers 8 16k;
+    proxy_buffer_size 32k;
+
+    root /var/www/lvenok_eyelashes/current/nginx;
+
+    location / {
+        try_files $uri @php;
+    }
+
+    location @php {
+        fastcgi_pass fpm;
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME /var/www/lvenok_eyelashes/current/index.php;
+    }
+}
