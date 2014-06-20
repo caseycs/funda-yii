@@ -1,13 +1,24 @@
 <h2>Top agents - houses, Amsterdam, all</h2>
 <table class="table">
+<thead>
+<tr><th>Agent id</th><th>Agent name</th><th>Count</th></tr>
+</thead>
+<tbody>
 {{#all}}
-<tr><td>{{MakelaarNaam}}</td><td>{{cnt}}</td></tr>
+<tr><td>{{MakelaarId}}</td><td>{{MakelaarNaam}}</td><td>{{cnt}}</td></tr>
 {{/all}}
+</tbody>
 </table>
+
 
 <h2>Top agents - houses, Amsterdam, with garden</h2>
 <table class="table">
-{{#garden}}
-<tr><td>{{MakelaarNaam}}</td><td>{{cnt}}</td></tr>
-{{/garden}}
+    <thead>
+    <tr><th>Agent id</th><th>Agent name</th><th>Count</th></tr>
+    </thead>
+    <tbody>
+    {{#garden}}
+    <tr><td>{{MakelaarId}}</td><td>{{MakelaarNaam}}</td><td>{{cnt}}</td></tr>
+    {{/garden}}
+    </tbody>
 </table>

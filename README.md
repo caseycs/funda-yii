@@ -43,7 +43,10 @@ You need:
 * mysql with `insided` and `insided_test` databases and restored dump from `app/data/schema.mysql.sql`
 * memcached
 * php with proper extensions
-* start on localhost with built-in php 5.5 server: `APPLICATION_ENV=dev php -S localhost:8888 -t public/ app/index.php`
+
+Start on localhost with built-in php 5.5 server: `APPLICATION_ENV=dev php -S localhost:8888 -t public/ app/index.php`
+Unit-tests: from app/tests `APPLICATION_ENV=dev ../../vendor/bin/phpunit unit`
+Selenium tests: still in progress
 
 ## todo
 
@@ -55,7 +58,7 @@ You need:
 * ~~unit tests - memcache-based RPM limiter~~
 * selenium tests - front web UI
 * unit tests - console script common
-* running on production
+* ~~running on production~~
 * ~~memcache for rpm limit~~
 * ~~console logging from yii~~
 * psr codestyle

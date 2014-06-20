@@ -35,7 +35,7 @@ class SiteController extends CController
         //cache for 10 minutes
         $rows = Yii::app()
             ->db
-//            ->cache(300)
+            ->cache(300)
             ->createCommand($sql)
             ->queryAll();
 
