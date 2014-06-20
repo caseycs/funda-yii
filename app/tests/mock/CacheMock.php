@@ -39,6 +39,7 @@ class CacheMock implements IApplicationComponent
     {
         if (isset($this->data[$k])) {
             $this->data[$k] -= $step;
+
             return $this->data[$k];
         } else {
             return false;

@@ -27,8 +27,7 @@ class EMustacheViewRenderer extends CApplicationComponent implements IViewRender
                     'cache' => Yii::app()->getRuntimePath() . DIRECTORY_SEPARATOR . 'Mustache' . DIRECTORY_SEPARATOR . 'cache',
                     'partials_loader' => new Mustache_Loader_FilesystemLoader($this->getTemplatesPath(),
                         array('extension' => $this->fileExtension)),
-                    'escape' => function($value)
-                    {
+                    'escape' => function ($value) {
                         return CHtml::encode($value);
                     },
                     'charset' => Yii::app()->charset,
@@ -55,11 +54,11 @@ class EMustacheViewRenderer extends CApplicationComponent implements IViewRender
     /**
      * Renders a view file.
      * This method is required by {@link IViewRenderer}.
-     * @param CBaseController $context the controller or widget who is rendering the view file.
-     * @param string $sourceFile the view file path
-     * @param mixed $data the data to be passed to the view
-     * @param boolean $return whether the rendering result should be returned
-     * @return mixed the rendering result, or null if the rendering result is not needed.
+     * @param  CBaseController $context    the controller or widget who is rendering the view file.
+     * @param  string          $sourceFile the view file path
+     * @param  mixed           $data       the data to be passed to the view
+     * @param  boolean         $return     whether the rendering result should be returned
+     * @return mixed           the rendering result, or null if the rendering result is not needed.
      */
     public function renderFile($context, $sourceFile, $data, $return)
     {

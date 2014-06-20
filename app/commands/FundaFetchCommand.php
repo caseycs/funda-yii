@@ -12,7 +12,7 @@ class FundaFetchCommand extends CConsoleCommand
 
     /* @var FundaClient */
     private $FundaClient;
-    
+
     /* @var CMemCache */
     private $CMemCache;
 
@@ -39,6 +39,7 @@ class FundaFetchCommand extends CConsoleCommand
         }
 
         Yii::log('FundaFetch finish');
+
         return 0;
     }
 
@@ -52,11 +53,13 @@ class FundaFetchCommand extends CConsoleCommand
 
             if (!$this->isFundaRequestAvaliable()) {
                 Yii::log('Funda rpm limit reached, exit now');
+
                 return false;
             }
             $result = $this->fetchPage($FundaFilter, 1);
             $this->storePages($FundaFilter, $result);
         }
+
         return true;
     }
 
@@ -164,7 +167,7 @@ class FundaFetchCommand extends CConsoleCommand
             $Agent = Agent::model()->findByAttributes(array('MakelaarId' => $realty['MakelaarId']));
             if (!$Agent) {
                 $Agent = new Agent;
-                $Agent->MakelaarId = (int)$realty['MakelaarId'];
+                $Agent->MakelaarId = (int) $realty['MakelaarId'];
                 $Agent->MakelaarNaam = $realty['MakelaarNaam'];
             }
             $Agent->update_time = new CDbExpression('NOW()');
@@ -218,6 +221,7 @@ class FundaFetchCommand extends CConsoleCommand
             $this->CMemCache->set(MemCacheKeys::FUNDA_FETCH_REQUESTS_START, time());
             $this->CMemCache->set(MemCacheKeys::FUNDA_FETCH_REQUESTS_MADE, 1);
             Yii::log('Funda requests made set to 1');
+
             return true;
         }
 
@@ -225,13 +229,16 @@ class FundaFetchCommand extends CConsoleCommand
         if (!$made) {
             $this->CMemCache->set(MemCacheKeys::FUNDA_FETCH_REQUESTS_MADE, 1);
             Yii::log('Funda requests made set to 1');
+
             return true;
         } elseif ($made >= $this->rpm_limit) {
             Yii::log('Funda requests limit reached');
+
             return false;
         } else {
             $this->CMemCache->memCache->increment(MemCacheKeys::FUNDA_FETCH_REQUESTS_MADE, 1);
             Yii::log('Funda requests left: ' . ($this->rpm_limit - --$made));
+
             return true;
         }
     }
@@ -252,6 +259,7 @@ class FundaFetchCommand extends CConsoleCommand
             $options,
             $page
         );
+
         return $result;
     }
 }

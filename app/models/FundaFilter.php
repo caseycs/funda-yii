@@ -70,7 +70,7 @@ class FundaFilter extends CActiveRecord
      * - Pass data provider to CGridView, CListView or any similar widget.
      *
      * @return CActiveDataProvider the data provider that can return the models
-     * based on the search/filter conditions.
+     *                             based on the search/filter conditions.
      */
     public function search()
     {
@@ -92,7 +92,7 @@ class FundaFilter extends CActiveRecord
     /**
      * Returns the static model of the specified AR class.
      * Please note that you should have this exact method in all your CActiveRecord descendants!
-     * @param string $className active record class name.
+     * @param  string      $className active record class name.
      * @return FundaFilter the static model class
      */
     public static function model($className = __CLASS__)
