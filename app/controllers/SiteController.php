@@ -33,7 +33,12 @@ class SiteController extends CController
             ORDER BY cnt DESC
             LIMIT 10';
         //cache for 10 minutes
-        $rows = Yii::app()->db->cache(600)->createCommand($sql)->queryAll();
+        $rows = Yii::app()
+            ->db
+//            ->cache(300)
+            ->createCommand($sql)
+            ->queryAll();
+
         return $rows;
     }
 

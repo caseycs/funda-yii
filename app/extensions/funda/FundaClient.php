@@ -29,12 +29,16 @@ class FundaClient extends CComponent
     {
         $params = array(
             'type' => $type,
-            'zo' => '/' . $location . '/' . join('/', $options),
+            'zo' => '/' . $location . '/' . join('/', $options) . '/',
             'page' => $page,
             'pagesize' => $this->fetch_pagesize,
         );
 
-        curl_setopt($this->curl, CURLOPT_URL, self::URL . $this->key . '/?' . http_build_query($params));
+        $url = self::URL . $this->key . '/?' . http_build_query($params);
+
+        Yii::log('FundaClient fetch ' . $url, CLogger::LEVEL_TRACE);
+
+        curl_setopt($this->curl, CURLOPT_URL, $url);
         $output = curl_exec($this->curl);
 
         if ($output === '') throw new FundaClientExceptionLimitExceeded();

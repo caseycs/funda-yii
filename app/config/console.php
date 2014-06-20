@@ -5,8 +5,8 @@ return CMap::mergeArray(
         'commandMap' => array(
             'fundafetch' => array(
                 'class' => 'application.commands.FundaFetchCommand',
-                'rpm_limit' => 90,
-                'page_expire' => 60 * 120, // 120 minutes
+                'rpm_limit' => 60,
+                'page_expire' => 60 * 120, // 120 minutes, so we retrieve each page every 2 hours
                 'pages_limit' => 100, // request 100 pages before die per script run
             ),
         ),

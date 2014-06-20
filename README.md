@@ -4,9 +4,12 @@
 
 ### Why this is simple task is co complicated?
 
-According to assignment description, code should be OO, DRY and reusable. So, i decided better to overestimate this requirements.
+According to assignment description, code should be OO, DRY and reusable.
+So i decided better to overestimate this requirements.
 
-Common architecture
+That means, that of course i can simplify this solution, use less DB tables, avoid memcache for Funda API limit and so on.
+
+### Common architecture
 
 We have cron script, that time-to-time makes query to Funda.nl and retrieves all pages and stores in DB.
 On the front - we just retrieve it (with cache) and show.
@@ -16,7 +19,9 @@ On the front - we just retrieve it (with cache) and show.
 I made 2 thinks do deal with requests per minute limitation of Funda API:
 
 * in FundaClient component i throw FundaClientExceptionLimitExceeded
-* in console script i use another counter with it's own limit, so i can use only part of the overall limit and leave the rest for another script
+* in console script i use another counter with it's own limit, so i can use only part of the overall limit and leave the rest for another script.
+
+Console script is starting every minute but only in a single instance, i use `flock` to prevent another one from running.
 
 So, normally we should not see exceptions form FundaClient, but if they will appear - that would be a call to check our scripts.
 
@@ -45,10 +50,11 @@ You need:
 * ~~write comments&readme - why i choose this approach?~~
 * ~~tricky api - how to determine pages count?~~
 * ~~general task - back-end~~
-* general task - front-end
-* unit tests - db storage
+* ~~general task - front-end~~
+* html5 animation
 * ~~unit tests - memcache-based RPM limiter~~
 * selenium tests - front web UI
+* unit tests - console script common
 * running on production
 * ~~memcache for rpm limit~~
 * ~~console logging from yii~~
@@ -57,8 +63,7 @@ You need:
 * code comments
 * ~~repo on github~~
 * ~~common config files~~
+* ~~well-known template engine~~
+* ~~remove all non-needed code everywhere~~
 * salt for server side config
 * capistrano/??? for deploy
-* ~~well-known template engine~~
-* remove all non-needed code everywhere
-* html5 animation
