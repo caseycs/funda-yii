@@ -65,7 +65,7 @@ Selenium tests: still in progress
 * ~~running on production~~
 * ~~memcache for rpm limit~~
 * ~~console logging from yii~~
-* psr codestyle
+* ~~psr codestyle~~
 * ~~psr autoload/namespaces - integrate composer with yii autoloader~~
 * code comments
 * ~~repo on github~~
