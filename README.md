@@ -61,7 +61,7 @@ Selenium tests: run webserver `APPLICATION_ENV=dev php -S localhost:8888 -t publ
 * ~~general task - front-end~~
 * html5 animation
 * ~~unit tests - memcache-based RPM limiter~~
-* selenium tests - front web UI
+* ~~selenium tests - front web UI~~
 * unit tests - console script common
 * ~~running on production~~
 * ~~memcache for rpm limit~~
