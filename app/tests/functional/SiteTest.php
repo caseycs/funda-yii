@@ -1,6 +1,13 @@
 <?php
 class SiteTest extends WebTestCase
 {
+    public $fixtures=array(
+        'agents'=>'Agent',
+        'realties'=>'Realty',
+        'filters'=>':funda_filter',
+        'pages'=>':funda_page',
+    );
+
     public function setUp()
     {
         parent::setUp();

@@ -25,10 +25,9 @@ class SiteController extends CController
             GROUP BY a.id
             ORDER BY cnt DESC
             LIMIT 10';
-        //cache for 10 minutes
         $rows = Yii::app()
             ->db
-            ->cache(300)
+            ->cache(300) //cache for 5 minutes
             ->createCommand($sql)
             ->queryAll();
 
