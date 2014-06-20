@@ -4,7 +4,7 @@ On production: http://insided.ikondrashov.ru/
 
 ## Comments
 
-### Why this is simple task is co complicated?
+### Why this simple task is co complicated?
 
 According to assignment description, code should be OO, DRY and reusable.
 So i decided better to overestimate this requirements.
