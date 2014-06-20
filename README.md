@@ -35,7 +35,7 @@ to use both composer autoload and native one from Yii.
 
 ### External components
 
-* See composer.json
+* See `composer.json`
 * Mustache rendering yii extension: https://github.com/Haensel/EMustache
 
 ## Installation
