@@ -67,7 +67,7 @@ Selenium tests: still in progress
 * ~~console logging from yii~~
 * ~~psr codestyle~~
 * ~~psr autoload/namespaces - integrate composer with yii autoloader~~
-* code comments
+* ~~code comments~~
 * ~~repo on github~~
 * ~~common config files~~
 * ~~well-known template engine~~

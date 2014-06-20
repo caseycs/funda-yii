@@ -1,4 +1,7 @@
 <?php
+/**
+ * Wrapper to our API requests
+ */
 class FundaClient extends CComponent
 {
     const LOCATION_AMSTERDAM = 'amsterdam';
@@ -20,7 +23,7 @@ class FundaClient extends CComponent
 
     public function init()
     {
-        //use one connection per all requests
+        //use one connection per all requests per script
         $this->curl = curl_init();
         curl_setopt($this->curl, CURLOPT_RETURNTRANSFER, 1);
     }
@@ -43,10 +46,10 @@ class FundaClient extends CComponent
 
         if ($output === '') throw new FundaClientExceptionLimitExceeded();
 
-        if (!$output) throw new \FundaClientExceptionServerError;
+        if (!$output) throw new FundaClientExceptionServerError;
 
         $output = json_decode($output, true);
-        if (!$output || !is_array($output)) throw new \FundaClientExceptionUnexpectedOutput;
+        if (!$output || !is_array($output)) throw new FundaClientExceptionUnexpectedOutput;
         return $output;
     }
 

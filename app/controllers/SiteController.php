@@ -1,29 +1,22 @@
 <?php
 class SiteController extends CController
 {
-    /**
-     * This is the default 'index' action that is invoked
-     * when an action is not explicitly requested by users.
-     */
     public function actionIndex()
     {
-        // renders the view file 'protected/views/site/index.php'
-        // using the default layout 'protected/views/layouts/main.php'
-
-        //amsterdam-all
+        //data for template
         $data = array(
             'all' => $this->stats(FundaFilter::ID_AMSTERDAM_ALL),
             'garden' => $this->stats(FundaFilter::ID_AMSTERDAM_GARDEN),
         );
 
-//        d($data);
-
         $this->render('index', $data);
     }
 
+    /**
+     * Retrieve data from DB
+     */
     private function stats($filter_id)
     {
-        //amsterdam-all
         $sql = 'SELECT a.*, COUNT(r.id) AS cnt
             FROM funda_page_realty_link fprl
             JOIN realty r ON r.id = fprl.realty_id
