@@ -1,5 +1,4 @@
 <?php
-// Yii::setPathOfAlias('local','path/to/local-folder');
 return array(
     'basePath' => realpath(dirname(__FILE__) . DIRECTORY_SEPARATOR . '..'),
     'name' => 'Insided Funda Assignment',
@@ -21,7 +20,8 @@ return array(
             'routes' => array(
                 array(
                     'class' => 'CFileLogRoute',
-                    'levels' => 'error, warning',
+//                    'levels' => 'error, warning',
+                    'levels' => 'trace,info,profile,warning,error', //for developing purposes
                 ),
             ),
         ),
@@ -44,7 +44,6 @@ return array(
     // autoloading model and component classes
     'import' => array(
         'application.models.*',
-        'application.components.*',
         'ext.funda.*',
         'ext.MemCacheKeys',
     ),

@@ -12,6 +12,9 @@
  */
 class FundaFilter extends CActiveRecord
 {
+    const ID_AMSTERDAM_ALL = 1;
+    const ID_AMSTERDAM_GARDEN = 2;
+
     /**
      * @return string the associated database table name
      */

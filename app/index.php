@@ -1,12 +1,35 @@
 <?php
-// change the following paths if necessary
-$yii=dirname(__FILE__).'/../vendor/yiisoft/yii/framework/yii.php';
-$config=dirname(__FILE__).'/config/main.php';
+//router for internal php server
+if (php_sapi_name() == 'cli-server' && is_file(__DIR__ . '/../public' . $_SERVER["REQUEST_URI"])) {
+    return false;
+}
 
-// remove the following lines when in production mode
-defined('YII_DEBUG') or define('YII_DEBUG',true);
-// specify how many levels of call stack should be shown in each log message
-defined('YII_TRACE_LEVEL') or define('YII_TRACE_LEVEL',3);
+$yii = __DIR__ . '/../vendor/yiisoft/yii/framework/yii.php';
+$config = __DIR__ . '/config/main.php';
 
-require_once($yii);
-Yii::createWebApplication($config)->run();
+if (getenv('APPLICATION_ENV') === 'dev') {
+    define('YII_DEBUG', true);
+
+    //for fast debug output
+    function d($val, $depth = 3, $die = true)
+    {
+        $depth_old = ini_get('xdebug.var_display_max_depth');
+        ini_set('xdebug.var_display_max_depth', $depth);
+        var_dump($val);
+        if ($die) die;
+        ini_set('xdebug.var_display_max_depth', $depth_old);
+    }
+}
+
+define('YII_TRACE_LEVEL', 3);
+
+require $yii;
+
+$CApplication = Yii::createWebApplication($config);
+
+//prepend YII autoloader with Composer one - hurra, now we can use PSR autoload!
+spl_autoload_unregister(array('YiiBase', 'autoload'));
+require __DIR__ . '/../vendor/autoload.php';
+spl_autoload_register(array('YiiBase', 'autoload'));
+
+$CApplication->run();

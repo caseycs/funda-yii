@@ -1,6 +1,7 @@
 {
     "require":{
-        "yiisoft/yii": "1.1.14"
+        "yiisoft/yii": "1.1.14",
+        "mustache/mustache": "v2.6.0"
     },
     "require-dev":{
         "phpunit/phpunit": "3.7.37",
